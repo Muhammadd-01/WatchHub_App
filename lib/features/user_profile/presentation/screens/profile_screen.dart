@@ -5,6 +5,7 @@ import '../../../../core/constants/app_constants.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../../orders/presentation/screens/order_history_screen.dart';
 import 'settings_screen.dart';
+import '../../../misc/presentation/screens/about_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -18,7 +19,10 @@ class ProfileScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              // Navigate to settings
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
             },
           ),
         ],
@@ -122,11 +126,10 @@ class ProfileScreen extends StatelessWidget {
                   title: 'About',
                   subtitle: 'App version and info',
                   onTap: () {
-                    showAboutDialog(
-                      context: context,
-                      applicationName: AppConstants.appName,
-                      applicationVersion: '1.0.0',
-                      applicationLegalese: '© 2025 WatchHub',
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AboutScreen()),
                     );
                   },
                 ),

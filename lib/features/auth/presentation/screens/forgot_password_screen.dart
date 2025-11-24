@@ -26,6 +26,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       final authProvider = context.read<AuthProvider>();
       final success = await authProvider.sendPasswordResetEmail(
         _emailController.text.trim(),
+        context,
       );
 
       if (success && mounted) {

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/constants/app_constants.dart';
+import '../../../misc/presentation/screens/terms_screen.dart';
+import '../../../misc/presentation/screens/about_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -171,7 +173,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: const Text('Privacy Policy'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
-                    // Navigate to privacy policy
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const TermsScreen()),
+                    );
                   },
                 ),
                 const Divider(height: 1),
@@ -181,7 +187,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: const Text('Terms & Conditions'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
-                    // Navigate to terms
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const TermsScreen()),
+                    );
                   },
                 ),
               ],
@@ -209,7 +219,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: const Text('Help & Support'),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () {
-                    // Navigate to help
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AboutScreen()),
+                    );
                   },
                 ),
                 const Divider(height: 1),

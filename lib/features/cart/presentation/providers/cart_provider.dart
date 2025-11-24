@@ -33,12 +33,17 @@ class CartProvider with ChangeNotifier {
 
   void setUserId(String userId) {
     _userId = userId;
-    loadCart();
+    if (_userId != null && _userId!.isNotEmpty) {
+      loadCart();
+    } else {
+      _items = [];
+      notifyListeners();
+    }
   }
 
   // Load cart from Firestore
   Future<void> loadCart() async {
-    if (_userId == null) return;
+    if (_userId == null || _userId!.isEmpty) return;
 
     _isLoading = true;
     notifyListeners();
@@ -51,9 +56,13 @@ class CartProvider with ChangeNotifier {
 
       if (doc.exists) {
         final data = doc.data() as Map<String, dynamic>;
-        _items = (data['items'] as List<dynamic>)
-            .map((item) => CartItem.fromMap(item as Map<String, dynamic>))
-            .toList();
+        if (data.containsKey('items')) {
+          _items = (data['items'] as List<dynamic>)
+              .map((item) => CartItem.fromMap(item as Map<String, dynamic>))
+              .toList();
+        } else {
+          _items = [];
+        }
       } else {
         _items = [];
       }
@@ -69,7 +78,7 @@ class CartProvider with ChangeNotifier {
 
   // Save cart to Firestore
   Future<void> _saveCart() async {
-    if (_userId == null) return;
+    if (_userId == null || _userId!.isEmpty) return;
 
     try {
       await _firestore

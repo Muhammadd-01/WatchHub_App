@@ -53,6 +53,7 @@ class _SignInScreenState extends State<SignInScreen>
       final success = await authProvider.signIn(
         _emailController.text.trim(),
         _passwordController.text,
+        context,
       );
 
       if (success && mounted) {

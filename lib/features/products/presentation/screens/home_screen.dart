@@ -10,6 +10,7 @@ import '../../../wishlist/presentation/screens/wishlist_screen.dart';
 import '../../../orders/presentation/screens/order_history_screen.dart';
 import '../../../user_profile/presentation/screens/profile_screen.dart';
 import 'search_screen.dart';
+import '../../../misc/presentation/screens/notifications_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -102,6 +103,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const SearchScreen(),
+                  ),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.notifications, color: AppTheme.textLight),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationsScreen(),
                   ),
                 );
               },

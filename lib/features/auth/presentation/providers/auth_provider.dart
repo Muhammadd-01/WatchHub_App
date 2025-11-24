@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../services/auth_service.dart';
@@ -37,7 +38,8 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> signIn(String email, String password) async {
+  Future<bool> signIn(
+      String email, String password, BuildContext context) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
@@ -46,6 +48,7 @@ class AuthProvider with ChangeNotifier {
       await _authService.signInWithEmailAndPassword(
         email: email,
         password: password,
+        context: context,
       );
       _isLoading = false;
       notifyListeners();
@@ -58,7 +61,8 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> signUp(String name, String email, String password) async {
+  Future<bool> signUp(
+      String name, String email, String password, BuildContext context) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
@@ -68,6 +72,7 @@ class AuthProvider with ChangeNotifier {
         email: email,
         password: password,
         name: name,
+        context: context,
       );
       _isLoading = false;
       notifyListeners();
@@ -80,13 +85,14 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<bool> sendPasswordResetEmail(String email) async {
+  Future<bool> sendPasswordResetEmail(
+      String email, BuildContext context) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
 
     try {
-      await _authService.sendPasswordResetEmail(email);
+      await _authService.sendPasswordResetEmail(email, context);
       _isLoading = false;
       notifyListeners();
       return true;
@@ -98,9 +104,9 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<void> sendEmailVerification() async {
+  Future<void> sendEmailVerification(BuildContext context) async {
     try {
-      await _authService.sendEmailVerification();
+      await _authService.sendEmailVerification(context);
       notifyListeners();
     } catch (e) {
       _errorMessage = e.toString();
@@ -115,7 +121,7 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> changePassword(
-      String currentPassword, String newPassword) async {
+      String currentPassword, String newPassword, BuildContext context) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
@@ -124,6 +130,7 @@ class AuthProvider with ChangeNotifier {
       await _authService.changePassword(
         currentPassword: currentPassword,
         newPassword: newPassword,
+        context: context,
       );
       _isLoading = false;
       notifyListeners();

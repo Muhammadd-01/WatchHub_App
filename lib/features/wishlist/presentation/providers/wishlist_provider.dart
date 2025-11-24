@@ -25,6 +25,8 @@ class WishlistProvider with ChangeNotifier {
   }
 
   Future<void> loadWishlist() async {
+    if (userId == null || userId!.isEmpty) return;
+
     _isLoading = true;
     _error = null;
     notifyListeners();
@@ -52,6 +54,8 @@ class WishlistProvider with ChangeNotifier {
         } else {
           _items = [];
         }
+      } else {
+        _items = [];
       }
     } catch (e) {
       _error = e.toString();
@@ -97,6 +101,8 @@ class WishlistProvider with ChangeNotifier {
   }
 
   Future<void> _updateFirestore() async {
+    if (userId == null || userId!.isEmpty) return;
+
     final productIds = _items.map((item) => item.id).toList();
 
     await FirebaseFirestore.instance
@@ -111,6 +117,8 @@ class WishlistProvider with ChangeNotifier {
   Future<void> clearWishlist() async {
     _items.clear();
     notifyListeners();
+
+    if (userId == null || userId!.isEmpty) return;
 
     try {
       await FirebaseFirestore.instance
