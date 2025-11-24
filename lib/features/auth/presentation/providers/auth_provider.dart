@@ -143,14 +143,38 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<void> updateUserProfile(UserModel updatedUser) async {
+  Future<bool> updateProfile({
+    required String name,
+    String? phoneNumber,
+    required BuildContext context,
+  }) async {
+    _isLoading = true;
+    notifyListeners();
+
     try {
-      await _authService.updateUserDocument(updatedUser);
-      _userModel = updatedUser;
+      // Update Firebase Auth Profile
+      await _user?.updateDisplayName(name);
+      await _user?.reload();
+      _user = _authService.currentUser;
+
+      // Update Firestore User Document
+      if (_userModel != null) {
+        final updatedUser = _userModel!.copyWith(
+          name: name,
+          phone: phoneNumber,
+        );
+        await _authService.updateUserDocument(updatedUser);
+        _userModel = updatedUser;
+      }
+
+      _isLoading = false;
       notifyListeners();
+      return true;
     } catch (e) {
       _errorMessage = e.toString();
+      _isLoading = false;
       notifyListeners();
+      return false;
     }
   }
 

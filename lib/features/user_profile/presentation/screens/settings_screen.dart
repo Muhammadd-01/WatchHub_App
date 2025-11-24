@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../misc/presentation/screens/terms_screen.dart';
 import '../../../misc/presentation/screens/about_screen.dart';
+import '../../../../core/providers/theme_provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -13,7 +15,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _isDarkMode = false;
   bool _notificationsEnabled = true;
   bool _emailNotifications = true;
   bool _pushNotifications = true;
@@ -27,7 +28,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _isDarkMode = prefs.getBool('darkMode') ?? false;
       _notificationsEnabled = prefs.getBool('notifications') ?? true;
       _emailNotifications = prefs.getBool('emailNotifications') ?? true;
       _pushNotifications = prefs.getBool('pushNotifications') ?? true;
@@ -54,29 +54,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
             style: Theme.of(context).textTheme.displaySmall,
           ),
           const SizedBox(height: 12),
-          Card(
-            child: SwitchListTile(
-              title: const Text('Dark Mode'),
-              subtitle: const Text('Use dark theme'),
-              value: _isDarkMode,
-              onChanged: (value) {
-                setState(() {
-                  _isDarkMode = value;
-                });
-                _saveSetting('darkMode', value);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      'Dark mode ${value ? 'enabled' : 'disabled'}. Restart app to apply.',
-                    ),
+          Consumer<ThemeProvider>(
+            builder: (context, themeProvider, _) {
+              return Card(
+                child: SwitchListTile(
+                  title: const Text('Dark Mode'),
+                  subtitle: const Text('Use dark theme'),
+                  value: themeProvider.isDarkMode,
+                  onChanged: (value) {
+                    themeProvider.toggleTheme(value);
+                  },
+                  secondary: Icon(
+                    themeProvider.isDarkMode
+                        ? Icons.dark_mode
+                        : Icons.light_mode,
+                    color: AppTheme.accentColor,
                   ),
-                );
-              },
-              secondary: Icon(
-                _isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                color: AppTheme.accentColor,
-              ),
-            ),
+                ),
+              );
+            },
           ),
           const SizedBox(height: 24),
 

@@ -7,6 +7,7 @@ import 'features/auth/presentation/providers/auth_provider.dart';
 import 'features/cart/presentation/providers/cart_provider.dart';
 import 'features/products/presentation/providers/product_provider.dart';
 import 'features/wishlist/presentation/providers/wishlist_provider.dart';
+import 'core/providers/theme_provider.dart';
 import 'features/auth/presentation/screens/splash_screen.dart';
 import 'features/auth/presentation/screens/sign_in_screen.dart';
 import 'features/products/presentation/screens/home_screen.dart';
@@ -36,15 +37,16 @@ class WatchHubApp extends StatelessWidget {
               WishlistProvider(userId: auth.user?.uid ?? ''),
         ),
         ChangeNotifierProvider(create: (_) => ProductProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
-      child: Consumer<AuthProvider>(
-        builder: (context, authProvider, _) {
+      child: Consumer2<AuthProvider, ThemeProvider>(
+        builder: (context, authProvider, themeProvider, _) {
           return MaterialApp(
             title: 'WatchHub',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: ThemeMode.system,
+            themeMode: themeProvider.themeMode,
             initialRoute: AppConstants.splashRoute,
             routes: {
               AppConstants.splashRoute: (context) => const SplashScreen(),

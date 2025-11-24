@@ -6,6 +6,8 @@ import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../../orders/presentation/screens/order_history_screen.dart';
 import 'settings_screen.dart';
 import '../../../misc/presentation/screens/about_screen.dart';
+import 'edit_profile_screen.dart';
+import '../../../seller/presentation/screens/seller_application_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -68,7 +70,12 @@ class ProfileScreen extends StatelessWidget {
                         const SizedBox(height: 16),
                         OutlinedButton.icon(
                           onPressed: () {
-                            // Navigate to edit profile
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const EditProfileScreen(),
+                              ),
+                            );
                           },
                           icon: const Icon(Icons.edit),
                           label: const Text('Edit Profile'),
@@ -118,6 +125,20 @@ class ProfileScreen extends StatelessWidget {
                   subtitle: 'Get help with your orders',
                   onTap: () {
                     // Navigate to support screen
+                  },
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.store_outlined,
+                  title: 'Become a Seller',
+                  subtitle: 'Apply to sell on WatchHub',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SellerApplicationScreen(),
+                      ),
+                    );
                   },
                 ),
                 _buildMenuItem(
