@@ -10,6 +10,13 @@ class CartProvider with ChangeNotifier {
   String? _errorMessage;
   String? _userId;
 
+  CartProvider({String? userId}) {
+    _userId = userId;
+    if (_userId != null && _userId!.isNotEmpty) {
+      loadCart();
+    }
+  }
+
   List<CartItem> get items => _items;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;

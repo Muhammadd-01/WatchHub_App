@@ -34,45 +34,39 @@ class AppTheme {
     ],
   );
 
-  // Typography
-  static const String headlineFont = 'Poppins';
-  static const String bodyFont = 'Roboto';
+  // Typography - Using system default fonts
+  static const String headlineFont = 'sans-serif'; // System default
+  static const String bodyFont = 'sans-serif'; // System default
 
   // Text Styles
   static const TextStyle h1 = TextStyle(
-    fontFamily: headlineFont,
     fontSize: 28,
     fontWeight: FontWeight.w600,
     letterSpacing: -0.5,
   );
 
   static const TextStyle h2 = TextStyle(
-    fontFamily: headlineFont,
     fontSize: 22,
     fontWeight: FontWeight.w600,
     letterSpacing: -0.3,
   );
 
   static const TextStyle h3 = TextStyle(
-    fontFamily: headlineFont,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
 
   static const TextStyle bodyLarge = TextStyle(
-    fontFamily: bodyFont,
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
 
   static const TextStyle bodyMedium = TextStyle(
-    fontFamily: bodyFont,
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
 
   static const TextStyle caption = TextStyle(
-    fontFamily: bodyFont,
     fontSize: 12,
     fontWeight: FontWeight.normal,
   );
@@ -98,7 +92,6 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontFamily: headlineFont,
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: textPrimary,
@@ -120,7 +113,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
         ),
         textStyle: const TextStyle(
-          fontFamily: bodyFont,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
@@ -188,7 +180,6 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontFamily: headlineFont,
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: textLight,
@@ -244,35 +235,29 @@ class AppTheme {
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontFamily: headlineFont,
         fontSize: 28,
         fontWeight: FontWeight.w600,
         color: textLight,
       ),
       displayMedium: TextStyle(
-        fontFamily: headlineFont,
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: textLight,
       ),
       displaySmall: TextStyle(
-        fontFamily: headlineFont,
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: textLight,
       ),
       bodyLarge: TextStyle(
-        fontFamily: bodyFont,
         fontSize: 16,
         color: textLight,
       ),
       bodyMedium: TextStyle(
-        fontFamily: bodyFont,
         fontSize: 14,
         color: textLight,
       ),
       bodySmall: TextStyle(
-        fontFamily: bodyFont,
         fontSize: 12,
         color: Color(0xFFB0B0B0),
       ),
