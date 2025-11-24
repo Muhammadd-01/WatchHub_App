@@ -1,0 +1,12 @@
+{
+    "name": "watchhub-scripts",
+    "version": "1.0.0",
+    "description": "Scripts for WatchHub data population",
+    "main": "populate_firestore.js",
+    "scripts": {
+        "populate": "node populate_firestore.js"
+    },
+    "dependencies": {
+        "firebase-admin": "^11.11.0"
+    }
+}

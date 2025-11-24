@@ -1,0 +1,215 @@
+{
+    "categories": [
+        {
+            "id": "luxury",
+            "name": "Luxury",
+            "icon": "diamond",
+            "order": 1
+        },
+        {
+            "id": "sport",
+            "name": "Sport",
+            "icon": "fitness_center",
+            "order": 2
+        },
+        {
+            "id": "classic",
+            "name": "Classic",
+            "icon": "watch",
+            "order": 3
+        },
+        {
+            "id": "smart",
+            "name": "Smart",
+            "icon": "watch_later",
+            "order": 4
+        }
+    ],
+    "products": [
+        {
+            "title": "Chrono Classic 42mm",
+            "brand": "Luxury Timepieces",
+            "type": "Automatic",
+            "price": 349.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800",
+                "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Stainless Steel",
+                "waterResistance": "50m",
+                "movement": "Automatic",
+                "band": "Leather",
+                "caseDiameter": "42mm"
+            },
+            "stock": 12,
+            "rating": 4.6,
+            "numRatings": 324,
+            "categoryId": "classic",
+            "isFeatured": true,
+            "description": "A timeless classic watch with automatic movement and premium leather band."
+        },
+        {
+            "title": "Sport Pro Diver",
+            "brand": "AquaMaster",
+            "type": "Quartz",
+            "price": 199.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Titanium",
+                "waterResistance": "200m",
+                "movement": "Quartz",
+                "band": "Rubber",
+                "caseDiameter": "44mm"
+            },
+            "stock": 25,
+            "rating": 4.8,
+            "numRatings": 156,
+            "categoryId": "sport",
+            "isFeatured": true,
+            "description": "Professional diving watch with 200m water resistance and luminous hands."
+        },
+        {
+            "title": "Executive Gold Edition",
+            "brand": "Prestige",
+            "type": "Automatic",
+            "price": 899.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "18K Gold",
+                "waterResistance": "30m",
+                "movement": "Automatic",
+                "band": "Alligator Leather",
+                "caseDiameter": "40mm"
+            },
+            "stock": 5,
+            "rating": 4.9,
+            "numRatings": 89,
+            "categoryId": "luxury",
+            "isFeatured": true,
+            "description": "Luxury timepiece with 18K gold case and premium alligator leather band."
+        },
+        {
+            "title": "SmartWatch Pro X",
+            "brand": "TechTime",
+            "type": "Smart",
+            "price": 299.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Aluminum",
+                "waterResistance": "50m",
+                "movement": "Digital",
+                "band": "Silicone",
+                "caseDiameter": "44mm"
+            },
+            "stock": 50,
+            "rating": 4.5,
+            "numRatings": 512,
+            "categoryId": "smart",
+            "isFeatured": false,
+            "description": "Advanced smartwatch with fitness tracking, heart rate monitor, and GPS."
+        },
+        {
+            "title": "Vintage Chronograph",
+            "brand": "Heritage",
+            "type": "Manual",
+            "price": 599.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Stainless Steel",
+                "waterResistance": "30m",
+                "movement": "Manual",
+                "band": "Leather",
+                "caseDiameter": "38mm"
+            },
+            "stock": 8,
+            "rating": 4.7,
+            "numRatings": 203,
+            "categoryId": "classic",
+            "isFeatured": false,
+            "description": "Vintage-inspired chronograph with manual winding movement."
+        },
+        {
+            "title": "Racing Chronometer",
+            "brand": "SpeedMaster",
+            "type": "Automatic",
+            "price": 749.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Carbon Fiber",
+                "waterResistance": "100m",
+                "movement": "Automatic",
+                "band": "Metal Bracelet",
+                "caseDiameter": "45mm"
+            },
+            "stock": 15,
+            "rating": 4.8,
+            "numRatings": 178,
+            "categoryId": "sport",
+            "isFeatured": true,
+            "description": "Racing-inspired chronometer with carbon fiber case and tachymeter bezel."
+        },
+        {
+            "title": "Minimalist Steel",
+            "brand": "Modern",
+            "type": "Quartz",
+            "price": 149.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "Stainless Steel",
+                "waterResistance": "30m",
+                "movement": "Quartz",
+                "band": "Mesh Steel",
+                "caseDiameter": "40mm"
+            },
+            "stock": 40,
+            "rating": 4.4,
+            "numRatings": 421,
+            "categoryId": "classic",
+            "isFeatured": false,
+            "description": "Minimalist design with clean dial and mesh steel bracelet."
+        },
+        {
+            "title": "Diamond Elegance",
+            "brand": "Prestige",
+            "type": "Quartz",
+            "price": 1299.99,
+            "currency": "USD",
+            "images": [
+                "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=800"
+            ],
+            "specs": {
+                "caseMaterial": "White Gold",
+                "waterResistance": "30m",
+                "movement": "Quartz",
+                "band": "Leather",
+                "caseDiameter": "36mm"
+            },
+            "stock": 3,
+            "rating": 5.0,
+            "numRatings": 45,
+            "categoryId": "luxury",
+            "isFeatured": true,
+            "description": "Exquisite timepiece with diamond-studded bezel and white gold case."
+        }
+    ]
+}
